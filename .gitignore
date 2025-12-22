@@ -42,7 +42,7 @@ coverage.xml
 .env.*
 
 # Model artifacts / outputs
-models/
+
 checkpoints/
 outputs/
 logs/
