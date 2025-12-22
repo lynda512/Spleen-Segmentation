@@ -1,0 +1,11 @@
+{
+  "images": [
+    {
+      "path": "C:\\Users\\lynda\\Documents\\AI Eng\\projects\\Spleen-Segmentation\\data\\raw\\Task09_Spleen\\imagesTr\\spleen_10.nii.gz",
+      "shape": [
+        512,
+        512,
+        55
+      ],
+      "spacing": [
+        

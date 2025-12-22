@@ -1,7 +1,8 @@
 from pathlib import Path
 
 # Base paths
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+# NOTE: parents[1] points to the project root (parents[2] went one level too high)
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DIR = DATA_DIR / "raw" / "Task09_Spleen"
 INTERIM_DIR = DATA_DIR / "interim"
