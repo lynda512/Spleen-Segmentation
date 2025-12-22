@@ -4,7 +4,7 @@ venv/
 env/
 
 # Project data (raw/interim/processed)
-data/
+
 data/interim/
 data/processed/
 data/raw/
