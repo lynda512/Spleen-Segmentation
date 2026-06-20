@@ -30,10 +30,10 @@ def get_train_transforms():
         RandCropByPosNegLabeld(
             keys=keys_img + keys_seg,
             label_key="label",
-            spatial_size=(96, 96, 96),
+            spatial_size=config.PATCH_SIZE,
             pos=1,
             neg=1,
-            num_samples=4,
+            num_samples=config.NUM_SAMPLES_PER_VOLUME,
         ),
         RandFlipd(keys=keys_img + keys_seg, prob=0.5, spatial_axis=0),
         RandRotate90d(keys=keys_img + keys_seg, prob=0.5, max_k=3),
@@ -42,6 +42,11 @@ def get_train_transforms():
 
 
 def get_val_transforms():
+    """
+    No random cropping/augmentation: validation and test must see the
+    full (preprocessed) volume so reported Dice reflects whole-volume
+    performance, not patch-level performance.
+    """
     keys_img = ["image"]
     keys_seg = ["label"]
     return Compose([
@@ -64,3 +69,8 @@ def get_val_transforms():
         CropForegroundd(keys=keys_img + keys_seg, source_key="image"),
         EnsureTyped(keys=keys_img + keys_seg),
     ])
+
+
+# Test transforms are identical to val transforms (no augmentation, full
+# volume). Kept as a separate name for clarity in train/evaluate/predict scripts.
+get_test_transforms = get_val_transforms
