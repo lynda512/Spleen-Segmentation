@@ -1,4 +1,20 @@
+# Core ML
+torch>=2.0
+monai>=1.3
+
+# Data I/O / numerics
 nibabel
 numpy
+
+# Metrics / analysis
+scikit-learn
+
+# Visualization
 matplotlib
-monai
+seaborn
+
+# Experiment tracking
+wandb
+
+# Used internally by MONAI's CacheDataset for progress bars
+tqdm
